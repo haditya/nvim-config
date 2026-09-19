@@ -16,6 +16,7 @@ return {
           "ruff",           -- Python (Linter)
           "omnisharp",      -- C#
           "clangd",         -- C / C++
+          "rust-analyzer"        -- Rust
         },
       })
 

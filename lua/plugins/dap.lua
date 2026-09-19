@@ -73,6 +73,8 @@ return {
           local package = mason_registry.get_package("codelldb")
           if package:is_installed() then
             codelldb_path = package:get_install_path() .. "/extension/adapter/codelldb"
+          else
+              vim.notify("Mason package 'codelldb' is not installed. Using system default.")
           end
         end
 
@@ -100,6 +102,31 @@ return {
       }
     end
   },
+  {
+      "jay-babu/mason-nvim-dap.nvim",
+      dependencies = {
+        "williamboman/mason.nvim",
+        "mfussenegger/nvim-dap",
+      },
+      config = function()
+        -- Initialize core mason first
+        require("mason").setup()
+
+        -- Configure the DAP installer
+        require("mason-nvim-dap").setup({
+          -- 1. List the debuggers you want automatically installed
+          ensure_installed = { "codelldb" },
+          -- 2. Tells the plugin to check and download missing debuggers on bootup
+          automatic_installation = true,
+          -- 3. Sets up standard handler bindings
+          handlers = {
+            function(config)
+              require('mason-nvim-dap').default_setup(config)
+            end,
+          },
+        })
+      end
+    },
 
   -- =========================================================================
   -- 2. Neotest Configuration (Reverted)

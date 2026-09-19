@@ -33,3 +33,19 @@ vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" }
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Actions" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+
+
+local dap = require("dap")
+-- <leader>dc: Debug Continue (Matches F5)
+vim.keymap.set("n", "<leader>dc", function() dap.continue() end, { desc = "Debug: Start/Continue" })
+-- <leader>db: Debug Breakpoint (Matches F9)
+vim.keymap.set("n", "<leader>db", function() dap.toggle_breakpoint() end, { desc = "Debug: Toggle Breakpoint" })
+-- <leader>do: Debug Over (Matches F10)
+vim.keymap.set("n", "<leader>do", function() dap.step_over() end, { desc = "Debug: Step Over" })
+-- <leader>di: Debug Into (Matches F11)
+vim.keymap.set("n", "<leader>di", function() dap.step_into() end, { desc = "Debug: Step Into" })
+-- <leader>dO: Debug Out (Matches Shift + F11)
+vim.keymap.set("n", "<leader>dO", function() dap.step_out() end, { desc = "Debug: Step Out" })
+-- <leader>dq: Debug Quit/Terminate (Matches Shift + F5)
+vim.keymap.set("n", "<leader>dq", function() dap.terminate() end, { desc = "Debug: Stop Session" })
+

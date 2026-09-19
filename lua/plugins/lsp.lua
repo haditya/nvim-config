@@ -56,6 +56,11 @@ return {
             cmd = { ty_cmd, "server" },
             root_markers = { "pyproject.toml", "setup.py", "requirements.txt", ".git", "ty.toml" },
             filetypes = { "python" },
+            settings = {
+                ty = {
+                    diagnosticMode = "workspace",
+                },
+            },
           })
 
           -- Safely enable all standard Mason servers on active buffers

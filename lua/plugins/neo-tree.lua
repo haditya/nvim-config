@@ -16,6 +16,14 @@ return {
         },
          -- Forces files to open in your main text window rather than inside locked layouts
         open_files_in_last_window = true, 
+        open_files_do_not_replace_types = { 
+          "terminal", 
+          "Trouble", 
+          "trouble", 
+          "qf", 
+          "edgy", 
+          "neotest-summary" -- 👈 Add this line
+        },
         follow_current_file = {
           enabled = true, -- Focuses the active file in the tree automatically
         },

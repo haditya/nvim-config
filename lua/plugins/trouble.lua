@@ -18,7 +18,7 @@ return {
       -- File diagnostics (Only problems inside your current active file tab)
       buffer_diagnostics = {
         mode = "diagnostics",
-        filter = { buf = 0 }, 
+        filter = { buf = 0 },
       },
     },
     -- Visual icon sets matching common nerd fonts

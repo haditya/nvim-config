@@ -121,6 +121,9 @@ return {
           require("neotest-python")({
             dap = { justify = "debugpy" },
             runner = "pytest",
+            -- !!EXPERIMENTAL!! Enable shelling out to `pytest` to discover test 
+            -- instances for files containing a parametrize mark (default: false)
+            pytest_discover_instances = true,
           }),
           require("rustaceanvim.neotest")
         },

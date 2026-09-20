@@ -1,3 +1,5 @@
+local vim = vim
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -8,10 +10,10 @@ return {
     },
     config = function()
       require("mason").setup()
-      
+
       local mason_lspconfig = require("mason-lspconfig")
       mason_lspconfig.setup({
-        ensure_installed = { 
+        ensure_installed = {
           "lua_ls",         -- Lua
           "ruff",           -- Python (Linter)
           "omnisharp",      -- C#
@@ -27,10 +29,19 @@ return {
       vim.lsp.config("*", {
         capabilities = capabilities,
       })
+      vim.lsp.config("lua_ls", {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" }
+                 }
+            }
+        }
+     })
 
-      -- Create an Autocommand group to ensure servers only fire up for real files
+     -- Create an Autocommand group to ensure servers only fire up for real files
       local lsp_group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true })
-      
+
       -- FIX: Changed 'nvim_create_autocallback' to 'nvim_create_autocmd'
       vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
         group = lsp_group,
@@ -79,8 +90,8 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^5", 
-    lazy = false,    
+    version = "^5",
+    lazy = false,
     config = function()
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 

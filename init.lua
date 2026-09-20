@@ -2,7 +2,7 @@
 -- ========================================================================== --
 --                               1. SETTINGS                                  --
 -- ========================================================================== --
-
+local vim = vim
 -- Set <Space> as the leader key (Must be set BEFORE lazy.nvim loads)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

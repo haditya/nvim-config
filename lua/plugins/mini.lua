@@ -12,8 +12,8 @@ return {
         require('mini.pairs').setup({})
         require('mini.surround').setup({})
         require('mini.align').setup({})
-        require('mini.git').setup({})
-        require('mini.diff').setup({})
+        -- require('mini.git').setup({})
+        -- require('mini.diff').setup({})
         require('mini.animate').setup({
             -- You can customize animations here. Leaving it empty uses fast, clean defaults:
             cursor = { enable = true },

@@ -1,7 +1,7 @@
 -- ========================================================================== --
 --                             2. KEYMAPS                                     --
 -- ========================================================================== --
-
+local vim = vim
 -- Fast saving and exiting
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit Neovim" })
@@ -48,4 +48,8 @@ vim.keymap.set("n", "<leader>di", function() dap.step_into() end, { desc = "Debu
 vim.keymap.set("n", "<leader>dO", function() dap.step_out() end, { desc = "Debug: Step Out" })
 -- <leader>dq: Debug Quit/Terminate (Matches Shift + F5)
 vim.keymap.set("n", "<leader>dq", function() dap.terminate() end, { desc = "Debug: Stop Session" })
+
+
+
+
 

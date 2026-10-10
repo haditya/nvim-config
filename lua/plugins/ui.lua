@@ -3,7 +3,7 @@ return {
     'akinsho/bufferline.nvim',
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons', -- Required for file type graphics
-    after = 'catppuccin', -- Optional: ensures it inherits your theme properly
+    after = 'tokyonight', -- Optional: ensures it inherits your theme properly
     config = function()
       -- Termguicolors must be enabled for full hex palette parsing
       vim.opt.termguicolors = true

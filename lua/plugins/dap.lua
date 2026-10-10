@@ -18,8 +18,16 @@ return {
       -- Automatically open/close DAP UI like VS Code layouts
       dap.listeners.before.attach.dapui_config = function() dapui.open() end
       dap.listeners.before.launch.dapui_config = function() dapui.open() end
-      dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
-      dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
+      dap.listeners.before.event_terminated.dapui_config = function()
+            dapui.close({ reset = true }) 
+            vim.cmd("Neotree close")
+            vim.cmd("Neotree show")
+        end
+      dap.listeners.before.event_exited.dapui_config = function() 
+          dapui.close({ reset = true }) 
+          vim.cmd("Neotree close")
+          vim.cmd("Neotree show")
+      end
 
        -- =========================================================================
       -- CRITICAL BUGFIX: Disable exception breakpoints globally to stop the crash
@@ -98,7 +106,13 @@ return {
           end,
           cwd = '${workspaceFolder}',
           stopOnEntry = false,
+          terminateOnDisconnect = true,
+          sourceLanguages = { "rust" },
+          sourceMap = {
+              ["/rustc/"] = ""
+            },
         },
+          runInTerminal = true,
       }
     end
   },
